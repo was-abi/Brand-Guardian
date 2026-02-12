@@ -54,10 +54,14 @@ class VideoIndexerService:
         logger.info(f"Downloading video from URL: {url}")
         
         ydl_opts = {
-            'format': "best[ext=mp4]",
+            'format': "best",
             'outtmpl': output_path,
-            'quiet': True,
-            'overwrites': True
+            'quiet': False,
+            "no_warnings": False,
+            "extractor_args": {"youtube": {'player_client': ["android", "web"]}},
+            "http_headers": {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0, Win64; x64) AppleWebKit/537.36"
+            }
         }
 
         try:
@@ -143,8 +147,4 @@ class VideoIndexerService:
                 "platform" : "youtube"
             }
         }
-        
-
     
-    
-            
