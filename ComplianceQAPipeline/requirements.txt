@@ -21,3 +21,4 @@ sqlalchemy
 streamlit
 uvicorn
 yt-dlp
+python-dotenv
